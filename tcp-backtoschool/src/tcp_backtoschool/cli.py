@@ -8,7 +8,6 @@ from . import utils
 app = typer.Typer()
 console = Console()
 
-
 @app.command()
 def main():
     """Console script for tcp_backtoschool."""
