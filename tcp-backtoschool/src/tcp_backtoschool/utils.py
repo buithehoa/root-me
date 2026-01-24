@@ -8,8 +8,7 @@ PORT = 52002
 
 console = Console()
 
-
-def do_something_useful():
+def back_to_school():
     console.print("DEBUG Connecting to the server...")
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
         s.connect((HOST, PORT))

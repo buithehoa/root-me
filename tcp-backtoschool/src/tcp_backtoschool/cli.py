@@ -15,7 +15,7 @@ def main():
     console.print("Replace this message by putting your code into tcp_backtoschool.cli.main")
     console.print("See Typer documentation at https://typer.tiangolo.com/")
 
-    utils.do_something_useful()
+    utils.back_to_school()
 
     console.print("DEBUG Done.")
 
