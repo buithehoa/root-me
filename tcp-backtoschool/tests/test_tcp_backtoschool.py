@@ -3,8 +3,6 @@ import pytest
 
 """Tests for `tcp_backtoschool` package."""
 
-# from tcp_backtoschool import tcp_backtoschool
-
 
 @pytest.fixture
 def response():
