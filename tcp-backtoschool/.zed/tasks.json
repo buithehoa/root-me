@@ -1,6 +1,6 @@
 [
   {
     "label": "Run TCP Back to School CLI",
-    "command": "PYTHONPATH=src python -m tcp_backtoschool.cli",
+    "command": "uv run tcp_backtoschool",
   },
 ]

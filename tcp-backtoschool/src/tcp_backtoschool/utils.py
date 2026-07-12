@@ -1,35 +1,20 @@
-import re
+"""Shared utilities for tcp_backtoschool challenges."""
+
 import socket
 
 from rich.console import Console
 
-HOST = "challenge01.root-me.org"
-PORT = 52002
-
 console = Console()
 
-def back_to_school():
-    console.print("DEBUG Connecting to the server...")
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-        s.connect((HOST, PORT))
-        response = s.recv(4096)
-        response_text = response.decode("utf-8", errors="replace")
-        console.print(f"DEBUG Received: {response_text}")
 
-        result = calculate(response_text)
-        console.print(f"DEBUG Sending result: {result}")
-        s.sendall(result.encode("utf-8"))
-
-        response = s.recv(4096)
-        console.print(response.decode("utf-8", errors="replace"))
+def create_tcp_connection(host: str, port: int) -> socket.socket:
+    """Create a TCP socket connection to the specified host and port."""
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.connect((host, port))
+    return s
 
 
-def calculate(response_text):
-    match = re.search(r"square root of (\d+) and multiply by (\d+)", response_text)
-    if match:
-        num1 = int(match.group(1))
-        num2 = int(match.group(2))
-        result = (num1**0.5) * num2
-        return f"{result:.2f}\n"
-    else:
-        raise ValueError("Could not find the numbers in the response.")
+def recv_all(sock: socket.socket, buffer_size: int = 4096) -> str:
+    """Receive data from socket and decode as UTF-8."""
+    response = sock.recv(buffer_size)
+    return response.decode("utf-8", errors="replace")
