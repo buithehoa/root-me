@@ -1,6 +1,0 @@
-[
-  {
-    "label": "Run TCP Back to School CLI",
-    "command": "uv run tcp_backtoschool",
-  },
-]

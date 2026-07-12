@@ -1,0 +1,6 @@
+[
+  {
+    "label": "Run Programming CLI",
+    "command": "uv run programming",
+  },
+]

@@ -1,7 +1,7 @@
 [project]
-name = "tcp-backtoschool"
+name = "programming"
 version = "0.1.0"
-description = "Python Boilerplate contains all the boilerplate you need to create a Python package."
+description = "Root-Me programming challenges solver."
 readme = "README.md"
 authors = [
   {name = "Bui The Hoa", email = "buithehoa@gmail.com"}
@@ -28,12 +28,12 @@ test = [
 ]
 
 [project.urls]
-bugs = "https://github.com/buithehoa/tcp_backtoschool/issues"
-changelog = "https://github.com/buithehoa/tcp_backtoschool/blob/master/changelog.md"
-homepage = "https://github.com/buithehoa/tcp_backtoschool"
+bugs = "https://github.com/buithehoa/root-me/issues"
+changelog = "https://github.com/buithehoa/root-me/blob/master/changelog.md"
+homepage = "https://github.com/buithehoa/root-me"
 
 [project.scripts]
-tcp_backtoschool = "tcp_backtoschool.cli:app"
+programming = "programming.cli:app"
 
 [tool.ty]
 # All rules are enabled as "error" by default; no need to specify unless overriding.
