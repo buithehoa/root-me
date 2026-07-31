@@ -23,7 +23,7 @@ class Program:
 PROGRAMS: list[Program] = [
     Program(1, "Back to School", "TCP challenge: calculate square root and multiply", "back_to_school"),
     Program(2, "Encoded String", "Decode the encoded string", "encoded_string"),
-    Program(3, "Program 03", "Placeholder program", "program_03"),
+    Program(3, "Roman Wheel", "Decode the ROT13-encoded string", "roman_wheel"),
     Program(4, "Program 04", "Placeholder program", "program_04"),
     Program(5, "Program 05", "Placeholder program", "program_05"),
     Program(6, "Program 06", "Placeholder program", "program_06"),

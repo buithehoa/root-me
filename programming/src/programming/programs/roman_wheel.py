@@ -1,23 +1,23 @@
-"""Encoded String - TCP Challenge."""
+"""Roman Wheel - TCP Challenge."""
 
-import base64
+import codecs
 import re
 import socket
 
 from rich.console import Console
 
-NAME = "Encoded String"
-DESCRIPTION = "Decode the encoded string"
+NAME = "Roman Wheel"
+DESCRIPTION = "Decode the ROT13-encoded string"
 
 HOST = "challenge01.root-me.org"
-PORT = 52023
+PORT = 52021
 
 console = Console()
 
 
 def run() -> None:
-    """Run the Encoded String challenge."""
-    console.print("[bold blue]Encoded String Challenge[/bold blue]")
+    """Run the Roman Wheel challenge."""
+    console.print("[bold blue]Roman Wheel Challenge[/bold blue]")
     console.print(f"Connecting to {HOST}:{PORT}...")
 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
@@ -28,7 +28,7 @@ def run() -> None:
         console.print(f"[dim]Received:[/dim] {response_text}")
 
         encoded = _extract_encoded_string(response_text)
-        decoded = _decode_string(encoded)
+        decoded = codecs.decode(encoded, "rot_13")
         console.print(f"[dim]Sending result:[/dim] {decoded}")
         s.sendall(f"{decoded}\n".encode())
 
@@ -37,13 +37,8 @@ def run() -> None:
 
 
 def _extract_encoded_string(response_text: str) -> str:
-    """Extract the quoted encoded payload from the server response."""
+    """Extract the encoded payload from the server prompt."""
     match = re.search(r"my string is '([^']+)'", response_text)
     if not match:
         raise ValueError("Could not find encoded string in server response.")
     return match.group(1)
-
-
-def _decode_string(encoded: str) -> str:
-    """Decode the challenge payload (single base64 layer)."""
-    return base64.b64decode(encoded).decode("utf-8")
