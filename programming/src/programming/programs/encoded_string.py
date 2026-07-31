@@ -1,12 +1,12 @@
-"""Program 02 - Placeholder.
+"""Encoded String - Challenge 02.
 
 This is a placeholder program. Replace with actual challenge implementation.
 """
 
 from rich.console import Console
 
-NAME = "Program 02"
-DESCRIPTION = "Placeholder program"
+NAME = "Encoded String"
+DESCRIPTION = "Decode the encoded string"
 
 console = Console()
 

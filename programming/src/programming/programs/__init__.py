@@ -22,7 +22,7 @@ class Program:
 # Registry of all available programs
 PROGRAMS: list[Program] = [
     Program(1, "Back to School", "TCP challenge: calculate square root and multiply", "back_to_school"),
-    Program(2, "Program 02", "Placeholder program", "program_02"),
+    Program(2, "Encoded String", "Decode the encoded string", "encoded_string"),
     Program(3, "Program 03", "Placeholder program", "program_03"),
     Program(4, "Program 04", "Placeholder program", "program_04"),
     Program(5, "Program 05", "Placeholder program", "program_05"),
