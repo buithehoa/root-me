@@ -3,6 +3,7 @@
 Connect to the server and solve the math problem to get the flag.
 """
 
+import math
 import re
 import socket
 
@@ -39,10 +40,10 @@ def run() -> None:
 def _calculate(response_text: str) -> str:
     """Parse the challenge and calculate the answer."""
     match = re.search(r"square root of (\d+) and multiply by (\d+)", response_text)
-    if match:
-        num1 = int(match.group(1))
-        num2 = int(match.group(2))
-        result = (num1**0.5) * num2
-        return f"{result:.2f}\n"
-    else:
+    if match is None:
         raise ValueError("Could not find the numbers in the response.")
+
+    num1 = int(match.group(1))
+    num2 = int(match.group(2))
+    result = math.sqrt(num1) * num2
+    return f"{result:.2f}\n"
