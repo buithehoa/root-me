@@ -24,7 +24,7 @@ PROGRAMS: list[Program] = [
     Program(1, "Back to School", "TCP challenge: calculate square root and multiply", "back_to_school"),
     Program(2, "Encoded String", "Decode the encoded string", "encoded_string"),
     Program(3, "Roman Wheel", "Decode the ROT13-encoded string", "roman_wheel"),
-    Program(4, "Program 04", "Placeholder program", "program_04"),
+    Program(4, "Uncompress Me", "Decode zlib-compressed, base64-encoded strings over TCP", "uncompress_me"),
     Program(5, "Program 05", "Placeholder program", "program_05"),
     Program(6, "Program 06", "Placeholder program", "program_06"),
     Program(7, "Program 07", "Placeholder program", "program_07"),
