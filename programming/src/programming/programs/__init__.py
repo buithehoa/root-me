@@ -1,7 +1,9 @@
 """Program registry for tcp_backtoschool challenges."""
 
+from collections.abc import Callable
 from dataclasses import dataclass
 from importlib import import_module
+from typing import cast
 
 
 @dataclass
@@ -16,7 +18,8 @@ class Program:
     def run(self) -> None:
         """Import and run the program."""
         mod = import_module(f".{self.module}", package=__name__)
-        mod.run()
+        run_fn = cast(Callable[[], None], mod.run)
+        run_fn()
 
 
 # Registry of all available programs
@@ -25,7 +28,7 @@ PROGRAMS: list[Program] = [
     Program(2, "Encoded String", "Decode the encoded string", "encoded_string"),
     Program(3, "Roman Wheel", "Decode the ROT13-encoded string", "roman_wheel"),
     Program(4, "Uncompress Me", "Decode zlib-compressed, base64-encoded strings over TCP", "uncompress_me"),
-    Program(5, "Program 05", "Placeholder program", "program_05"),
+    Program(5, "CAPTCHA Me If You Can", "Break the CAPTCHA in less than 3 seconds", "captcha_me_if_you_can"),
     Program(6, "Program 06", "Placeholder program", "program_06"),
     Program(7, "Program 07", "Placeholder program", "program_07"),
     Program(8, "Program 08", "Placeholder program", "program_08"),

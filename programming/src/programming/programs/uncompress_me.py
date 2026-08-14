@@ -12,7 +12,6 @@ import re
 import socket
 import zlib
 from re import Pattern
-from typing import cast
 
 from rich.console import Console
 
